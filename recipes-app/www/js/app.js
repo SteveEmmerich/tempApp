@@ -12,8 +12,9 @@ var detailsPage =
         '<div class="scroller">' +
             '<div class="recipes">' +
                 '<h2>{{name}}</h2>' +
-                '<img src="images/{{img}}" alt="Author: {{Author}} Submitted: {{date}} Category: {{Category}}"/>' +
+                '<img src="images/{{img}}" alt="Author: {{author}} Submitted: {{date}} Category: {{Category}}"/>' +
                 '<p><br/></p>' +
+                '<p>Author: {{author}}</p>' +
                 '<p>Yield: {{Yield}}</p>' +
                 '<p>Total: {{Total}}</p>' +
                 '<p>Ingredients: <br/>{{Ingredients}}</p>' +
