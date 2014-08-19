@@ -12,9 +12,11 @@ var detailsPage =
         '<div class="scroller">' +
             '<div class="recipes">' +
                 '<h2>{{name}}</h2>' +
-                '<img src="images/{{img}}" alt="Author: {{author}} Submitted: {{date}} Category: {{Category}}"/>' +
+                '<img src="images/{{img}}" alt="Failed to find image"/>' +
                 '<p><br/></p>' +
-                '<p>Author: {{author}}</p>' +
+                '<p>Submitted: {{date}}</p>' +
+                '<p>Category: {{Category}}</p>' +
+                '<p>Author: {{Author}}</p>' +
                 '<p>Yield: {{Yield}}</p>' +
                 '<p>Total: {{Total}}</p>' +
                 '<p>Ingredients: <br/>{{Ingredients}}</p>' +
@@ -55,6 +57,7 @@ function route(event) {
     console.log((hash in reps));
     if (hash in reps) {
         page = merge(detailsPage, {img: reps[hash].image, name: reps[hash].name, Preparation: reps[hash].Preparation, Yield: reps[hash].Yield, Total: reps[hash].Total, Ingredients: reps[hash].Ingredients, author: reps[hash].author, date: reps[hash].date, category: reps[hash].category});
+        
     }
     else {
         page = homePage;
@@ -75,7 +78,7 @@ function merge(tpl, data) {
               .replace("{{Total}}", data.Total)
               .replace("{{Ingredients}}", data.Ingredients)
               .replace("{{Author}}", data.author)
-              .replace("{{date}}", data.submitted)
+              .replace("{{date}}", typeof data.submitted != 'undefined'? data.submitted : 'No Date'  )
               .replace("{{Category}}", data.category);
 }
 function loadRecipes()
